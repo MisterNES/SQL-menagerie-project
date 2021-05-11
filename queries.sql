@@ -95,7 +95,8 @@ WHERE population_estimate_2018 > 1000000;
      uses a WHERE clause to return only the cities in Texas.
 */
 
--- your query here
+SELECT city, population_estimate_2018 FROM cities
+WHERE state = "Texas" AND population_estimate_2018 > 1000000;
 
 \echo ========= Problem 3.6 ====================================================
 \echo
@@ -108,7 +109,8 @@ WHERE population_estimate_2018 > 1000000;
      New York, California, Texas.
 */
 
--- your query here
+SELECT city, state, population_estimate_2018 FROM cities
+WHERE state NOT in ('New York', 'California', 'Texas');
 
 \echo ========= Problem 3.7 ====================================================
 \echo
@@ -119,7 +121,8 @@ WHERE population_estimate_2018 > 1000000;
      (Note: See the PostgreSQL doc on Pattern Matching for more information.)
 */
 
--- your query here
+SELECT city, state, population_estimate_2018 FROM cities
+WHERE city LIKE 'S%';
 
 \echo ========= Problem 3.8 ====================================================
 \echo
@@ -130,7 +133,8 @@ WHERE population_estimate_2018 > 1000000;
      population in 2018.
 */
 
--- your query here
+SELECT city, state, land_area_sq_mi_2016, population_estimate_2018 FROM cities
+WHERE land_area_sq_mi_2016 > 400 OR population_estimate_2018 > 2000000;
 
 \echo ========= Problem 3.9 ====================================================
 \echo
@@ -141,7 +145,9 @@ WHERE population_estimate_2018 > 1000000;
      name, the land area, and the estimated population in 2018.
 */
 
--- your query here
+SELECT city, state, land_area_sq_mi_2016, population_estimate_2018 FROM cities
+WHERE land_area_sq_mi_2016 > 400 OR population_estimate_2018 > 2000000 AND NOT
+land_area_sq_mi_2016 > 400 AND population_estimate_2018 > 2000000;
 
 \echo ========= Problem 3.10 ===================================================
 \echo
