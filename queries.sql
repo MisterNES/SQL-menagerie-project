@@ -96,7 +96,7 @@ WHERE population_estimate_2018 > 1000000;
 */
 
 SELECT city, population_estimate_2018 FROM cities
-WHERE state = "Texas" AND population_estimate_2018 > 1000000;
+WHERE state = 'Texas' AND population_estimate_2018 > 1000000;
 
 \echo ========= Problem 3.6 ====================================================
 \echo
@@ -221,7 +221,7 @@ B.2) Formatting Commas: Refactor Phase 2, Query #1 to turn the INT for estimated
        estimated population in 2018 from the "cities" table.
 */
 
--- your query here
+SELECT city, state, to_char(population_estimate_2018, '9,999,999') FROM cities;
 
 \echo ========= Problem B.3 ====================================================
 \echo
@@ -237,7 +237,8 @@ B.3) Decimals and Rounding: Refactor Phase 3, Query #5 to turn number of
        in Texas.
 */
 
--- your query here
+SELECT city, ROUND(((population_estimate_2018 * 1.00)/1000000), 2) FROM cities
+WHERE state = 'Texas' AND population_estimate_2018 > 1000000;
 
 \echo ========= Problem B.4 ====================================================
 \echo
@@ -256,6 +257,9 @@ B.4) ORDER BY and LIMIT Clauses: Refactor Phase 3, Query #10 to return only one
        the census population in 2010.
 */
 
--- your query here
+SELECT city, state, population_estimate_2018, population_census_2010 FROM cities
+WHERE (population_estimate_2018 - population_census_2010) > 200000
+ORDER BY (population_estimate_2018 - population_census_2010) DESC
+LIMIT 1;
 
 \echo ========= (done!) ========================================================
