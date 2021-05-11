@@ -158,7 +158,8 @@ land_area_sq_mi_2016 > 400 AND population_estimate_2018 > 2000000;
       in 2010.
 */
 
--- your query here
+SELECT city, state, population_estimate_2018, population_census_2010 FROM cities
+WHERE (population_estimate_2018 - population_census_2010) > 200000;
 
 ---- Phase 4: Use a JOIN operation ---------------------------------------------
 -- Retrieve rows from multiple tables joining on a foreign key.
@@ -173,7 +174,8 @@ land_area_sq_mi_2016 > 400 AND population_estimate_2018 > 2000000;
      airport names and city names only.
 */
 
--- your query here
+SELECT * FROM cities
+JOIN airports ON (cities.id = airports.city_id);
 
 \echo ========= Problem 4.2 ====================================================
 \echo
@@ -185,7 +187,9 @@ land_area_sq_mi_2016 > 400 AND population_estimate_2018 > 2000000;
       rows.)
 */
 
--- your query here
+SELECT COUNT(*) FROM cities
+JOIN airports ON (cities.id = airports.city_id)
+WHERE cities.city = 'New York'
 
 --------------------------------------------------------------------------------
 ---- Bonuses:
@@ -203,7 +207,8 @@ B.1) Apostrophe: Write a SQL query to get all three ID codes (the Federal
       include a single quote in a SQL query.)
 */
 
--- your query here
+SELECT faa_id, iata_id, icao_id FROM airports
+WHERE name = 'Chicago O''Hare International Airport';
 
 \echo ========= Problem B.2 ====================================================
 \echo
