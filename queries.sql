@@ -30,7 +30,7 @@
      2018 from the "cities" table.
 */
 
--- your query here
+SELECT city, state, population_estimate_2018 FROM cities;
 
 \echo ========= Problem 2.2 ====================================================
 \echo
@@ -39,7 +39,7 @@
      "airports" table.
 */
 
--- your query here
+SELECT name FROM airports;
 
 ---- Phase 3: Add WHERE clauses ------------------------------------------------
 -- Select specific rows from a table using WHERE and common operators.
@@ -51,7 +51,8 @@
      in 2018 of the city of San Diego.
 */
 
--- your query here
+SELECT city, population_estimate_2018 FROM cities
+WHERE city = 'San Diego';
 
 \echo ========= Problem 3.2 ====================================================
 \echo
@@ -61,7 +62,8 @@
       Phoenix, Jacksonville, Charlotte, Nashville.
 */
 
- -- your query here
+SELECT city, state, population_estimate_2018 FROM cities
+WHERE city IN ('Phoenix', 'Jacksonville', 'Charlotte', 'Nashville');
 
 \echo ========= Problem 3.3 ====================================================
 \echo
@@ -71,7 +73,8 @@
      city, state, and estimated population in 2018 columns.
 */
 
--- your query here
+SELECT city, state, population_estimate_2018 FROM cities
+WHERE population_estimate_2018 BETWEEN 800000 AND 900000;
 
 \echo ========= Problem 3.4 ====================================================
 \echo
@@ -81,7 +84,8 @@
      1,000,000 people).
 */
 
--- your query here
+SELECT city, population_estimate_2018 FROM cities
+WHERE population_estimate_2018 > 1000000;
 
 \echo ========= Problem 3.5 ====================================================
 \echo
